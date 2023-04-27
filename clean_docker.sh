@@ -95,5 +95,3 @@ esac
 
 echo
 echo "Done!"
-
-teste
