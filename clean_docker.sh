@@ -1,5 +1,5 @@
 #/bin/bash
-# Script Limpeza de Docker
+# Script Limpeza do Docker
 # 2023 - By: Diogo Pacheco
 
 clear
@@ -56,17 +56,24 @@ eliminar_networks() {
   fi
 }
 
+sair() {
+  echo -e "\e[31mSaindo.....\e[0m"
+}
+
 # Limpar o terminal
 clear
 
 # Perguntar ao utilizador o que é para eliminar
+echo -e "\e[31m==============================\e[0m"
 echo -e "\e[31mWhat you want to eliminate?\e[0m"
+echo -e "\e[31m==============================\e[0m"
 echo -e "\e[1m1. Everything\e[0m"
 echo -e "\e[1m2. Images\e[0m"
 echo -e "\e[1m3. Volumes\e[0m"
 echo -e "\e[1m4. Networks\e[0m"
 echo -e "\e[1m5. Containers\e[0m"
 echo -e "\e[1m6. Exit\e[0m"
+echo -e "\e[31m===============\e[0m"
 
 # Ler a opção do utilizador
 read -p "Enter your choice (1-5): " choice
@@ -88,10 +95,14 @@ case $choice in
   5)
     eliminar_containers
     ;;
+  6)
+    sair
+    ;;
   *)
     echo "Invalid choice. Exiting..."
     ;;
 esac
 
 echo
-echo "Done!"
+echo -e "\e[31m===============\e[0m"
+echo -e "\e[31mDone!\e[0m"
