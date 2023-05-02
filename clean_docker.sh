@@ -11,6 +11,12 @@ eliminar_tudo() {
   eliminar_networks
 }
 
+eliminar_quasetudo_imagens() {
+  eliminar_containers
+  eliminar_volumes
+  eliminar_networks
+}
+
 # Função para eliminar containers
 eliminar_containers() {
   if [ $(docker ps -aq | wc -l) -gt 0 ]; then
@@ -72,11 +78,12 @@ echo -e "\e[1m2. Images\e[0m"
 echo -e "\e[1m3. Volumes\e[0m"
 echo -e "\e[1m4. Networks\e[0m"
 echo -e "\e[1m5. Containers\e[0m"
-echo -e "\e[1m6. Exit\e[0m"
+echo -e "\e[1m6. All but not images\e[0m"
+echo -e "\e[1m7. Exit\e[0m"
 echo -e "\e[31m===============\e[0m"
 
 # Ler a opção do utilizador
-read -p "Enter your choice (1-5): " choice
+read -p "Enter your choice (1-7): " choice
 
 # Executar a função correspondente à opção escolhida pelo utilizador
 case $choice in
@@ -96,6 +103,9 @@ case $choice in
     eliminar_containers
     ;;
   6)
+    eliminar_quasetudo_imagens
+    ;;
+  7)
     sair
     ;;
   *)
