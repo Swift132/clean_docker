@@ -121,7 +121,7 @@ echo -e "\e[1m7. Exit\e[0m"
 echo -e "\e[31m===============\e[0m"
 
 # Ler a opção do utilizador
-read -p "Enter your choice (1-5): " choice
+read -p "Enter your choice (1-7): " choice
 
 # Executar a função correspondente à opção escolhida pelo utilizador
 case $choice in
