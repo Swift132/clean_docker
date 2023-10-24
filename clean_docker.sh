@@ -55,6 +55,12 @@ parar_containers() {
   fi
 }
 
+eliminar_quasetudo_imagens() {
+  eliminar_containers
+  eliminar_volumes
+  eliminar_networks
+}
+
 # Função para eliminar containers
 delete_containers() {
   if [ $(docker ps -aq | wc -l) -gt 0 ]; then
@@ -142,6 +148,7 @@ case $choice in
     ;;
   6)
     delete_containers
+
     ;;
   7)
     sair
